@@ -8,7 +8,23 @@
 <body>
   <h1>Baby's Sri Lankan Snacks Menu</h1>
 
-  <p>hello</p>
+  <div class="controls">
+    <select id="snackSelect">
+      <option value="" disabled selected>Select a snack…</option>
+    </select>
+    <button>Add Item</button>
+  </div>
+
+  <table id="orderTable">
+    <tr>
+      <th>Snack</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Remove</th>
+    </tr>
+  </table>
+
+  <div id="total">Total: £0.00</div>
 
   <script src="script.js"></script>
 </body>

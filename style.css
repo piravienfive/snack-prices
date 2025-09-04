@@ -1,10 +1,63 @@
 body {
   font-family: Arial, sans-serif;
-  background: #daa520; /* goldenrod */
+  background: #daa520;
   padding: 20px;
 }
 
 h1 {
   text-align: center;
   color: maroon;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+select, button {
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+table {
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: maroon;
+  color: white;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+}
+
+#total {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: maroon;
+}
+
+button {
+  background: maroon;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: maroon;
 }
