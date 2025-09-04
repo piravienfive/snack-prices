@@ -1,0 +1,10 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #daa520; /* goldenrod */
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: maroon;
+}
