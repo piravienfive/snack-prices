@@ -11,6 +11,16 @@
   <div class="controls">
     <select id="snackSelect">
       <option value="" disabled selected>Select a snack…</option>
+        <option value="muttonRoll">Mutton Roll (£1.20 each)</option>
+        <option value="fishPatties">Fish Patties (£1.50 each)</option>
+        <option value="muttonPatties">Mutton Patties (£1.80 each)</option>
+        <option value="seeniChippi">Seeni Chippi (£0.80 per 100g)</option>
+        <option value="murruku">Murruku (£0.50 each)</option>
+        <option value="vaddai">Vaddai (£0.70 each)</option>
+        <option value="laddu">Laddu (£1.00 each)</option>
+        <option value="ariyatharam">Ariyatharam (£1.50 each)</option>
+        <option value="mixer">Mixer (£1.20 per 100g)</option>
+        <option value="valapaniyaram">Valapaniyaram (£1.20 each)</option>
     </select>
     <button onclick="addItem()">Add Item</button>
   </div>
@@ -25,7 +35,28 @@
   </table>
 
   <div id="total">Total: £0.00</div>
+  <hr class="divider">
+
+  <section class="contact">
+    <h2>Contact Baby by Text</h2>
+    <p class="contact-note">Send a text message to place an order or ask a question.</p>
+
+    <form id="smsForm">
+      <label for="smsMessage">Your message (optional)</label>
+      <textarea id="smsMessage" rows="3" placeholder="Hi, I’d like to order..."></textarea>
+
+      <div class="contact-actions">
+        <button type="submit">Text Now</button>
+        <a id="smsFallback" class="secondary" href="#">Open SMS app</a>
+      </div>
+
+      <p class="contact-alt">or call: <a id="telLink" href="#">+44 1234 567890</a></p>
+    </form>
+  </section>
+
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
