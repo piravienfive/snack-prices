@@ -144,4 +144,87 @@ button:hover {
 }
 
 
+@media (max-width: 480px) {
+  body {
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    padding-left: max(12px, env(safe-area-inset-left));
+  }
 
+  h1 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 8px 0 16px;
+  }
+
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  select, button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  th, td {
+    padding: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  input[type="number"] {
+    width: 84px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+
+  #total {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 16px auto 0;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.06);
+  }
+
+
+  .divider,
+  .contact {
+    width: 100%;
+  }
+  .contact {
+    padding: 12px;
+  }
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact a.secondary,
+  .contact button,
+  button {
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  table, .contact, .divider { width: 95%; }
+  select, button, input[type="number"] { font-size: 16px; }
+}
