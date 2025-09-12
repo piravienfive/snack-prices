@@ -75,3 +75,76 @@ function calculateTotal() {
   });
   document.getElementById("total").innerText = "Total: £" + total.toFixed(2);
 }
+
+const MUM_PHONE = "+447000000000";
+
+setupContact(); // run once after load
+
+function setupContact() {
+  // Fill in tel and basic sms fallback links
+  const telLink = document.getElementById("telLink");
+  const smsFallback = document.getElementById("smsFallback");
+
+  if (telLink) {
+    telLink.href = `tel:${MUM_PHONE}`;
+    telLink.textContent = formatPhoneForDisplay(MUM_PHONE);
+  }
+  if (smsFallback) {
+    smsFallback.href = `sms:${MUM_PHONE}`;
+  }
+
+  // Handle the SMS form submit
+  const form = document.getElementById("smsForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const messageInput = document.getElementById("smsMessage");
+    const typed = (messageInput?.value || "").trim();
+
+    // If user didn't type a message, auto-build one from the current order
+    const summary = buildOrderSummary();
+    const body = typed || summary || "Hi, I'd like to place an order.";
+
+    const smsLink = buildSmsLink(MUM_PHONE, body);
+    // Open the SMS app
+    window.location.href = smsLink;
+  });
+}
+
+// Build an order summary from the table (e.g. "Fish Cutlet x 3, Murruku x 2. Total: £5.00")
+function buildOrderSummary() {
+  const rows = document.querySelectorAll("#orderTable tr");
+  const parts = [];
+  let total = 0;
+
+  // Skip header row (index 0)
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i].cells;
+    const name = cells[0]?.innerText || "";
+    const priceText = cells[1]?.innerText || "£0.00";
+    const input = rows[i].querySelector('input[type="number"]');
+
+    const price = parseFloat(priceText.replace("£", "")) || 0;
+    const qty = parseFloat(input?.value) || 0;
+
+    if (qty > 0) {
+      parts.push(`${name} x ${qty}`);
+      total += qty * price;
+    }
+  }
+
+  if (parts.length === 0) return "";
+
+  return `Hi, I'd like to order: ${parts.join(", ")}. Total: £${total.toFixed(2)}`;
+}
+function buildSmsLink(number, body) {
+  const encoded = encodeURIComponent(body);
+  const isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+  return isIOS ? `sms:${number}&body=${encoded}` : `sms:${number}?body=${encoded}`;
+}
+
+function formatPhoneForDisplay(e164) {
+  // Basic display helper: just returns what you set (customize if you like)
+  return e164;
+}
